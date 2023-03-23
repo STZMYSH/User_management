@@ -1,5 +1,7 @@
 package com.example.zhuce_xxff;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,6 +26,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.card.MaterialCardView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -84,6 +87,7 @@ public class fragment_home extends Fragment {
         yyy2.setText("——" + from);
         TextView yyy3 = v.findViewById(R.id.yyy3);
         // 隐藏 TextView
+        yyy3.setText("");
         yyy3.setVisibility(View.GONE);
         if (from_who != "" || from_who.equals(from)) {
             yyy3.setText("——" + from_who);
@@ -95,6 +99,26 @@ public class fragment_home extends Fragment {
         yyy4.setVisibility(View.GONE);
 //        yyy4.setText("——"+creator);
 
+        //////////复制一言
+        MaterialCardView cardView = v.findViewById(R.id.yy);
+        cardView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                String text1 = yyy.getText().toString();
+                String text2 = yyy2.getText().toString();
+                String text3 = yyy3.getText().toString();
+                String allText = text1 + text2 + text3;
+                if (yyy3.getVisibility() == View.GONE) {
+                    allText = text1 + text2;
+                }
+                ClipboardManager clipboard = (ClipboardManager) requireContext().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clipData = ClipData.newPlainText("text", allText);
+                clipboard.setPrimaryClip(clipData);
+
+                return true;
+            }
+        });
+/////////
         return v;
     }
 
