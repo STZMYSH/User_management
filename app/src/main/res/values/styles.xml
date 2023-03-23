@@ -1,0 +1,7 @@
+<resources>
+
+
+    <style name="mybotton">
+        <item name="rippleColor">#fff</item>
+    </style>
+</resources>

@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <!--    Theme.Material3.DayNight.NoActionBar-->
+    <!--    Theme.MaterialComponents.DayNight.NoActionBar.Bridge-->
+        <style name="AppTheme.Light" parent="Theme.Material3.DayNight.NoActionBar">
+            <!-- 定义日间模式的样式 -->
+        <item name="colorPrimary">#D3BBF5</item>
+        <item name="android:subtitleTextColor">@color/black</item>
+        <item name="android:backgroundTint">#ccc</item>
+        <item name="colorPrimaryVariant">#9EDAD4</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@android:color/holo_orange_dark</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">#00000000</item>
+        </style>
+
+        <style name="AppTheme.Dark" parent="Theme.Material3.DayNight.NoActionBar">
+            <!-- 定义暗黑模式的样式 -->
+        </style>
+
+</resources>
